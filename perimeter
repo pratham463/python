@@ -1,0 +1,89 @@
+public class GeometryDriver 
+{
+
+public static void main(String[] args) 
+{
+
+
+  double radius;
+  double side1 = 0; 
+  double side2 = 0;
+  double side3 = 0; 
+  double length =0;
+  double width =0; 
+  double perimeter = 0;
+  String userChoice;
+
+    Scanner keyboard = new Scanner(System.in);
+    int option;
+
+
+    System.out.println("Welcome to the Geometry Calculator!\n"
+            + "In this program we will use a menu to decide what kind of shape we will create.\n"
+            + "\n1.Create and Calculate Perimeter of a Circle"
+            + "\n2. Create and Calculate Perimeter of a Rectangle"
+            + "\n3. Create and Calculate Perimeter of a Triangle");
+
+
+
+    String input;
+    GeometricShape aShape = null;
+
+    option = keyboard.nextInt();
+
+
+
+
+    switch (option)
+    {
+        case 1:
+
+
+
+            input = JOptionPane. showInputDialog(null, "Enter the radius: ");
+            radius = Double.parseDouble(input);
+            aShape = new GeometricShape(radius);
+            perimeter = aShape.getPerimeter();
+
+
+            aShape = new GeometricShape(radius);
+            break;
+
+        case 2:
+
+
+            input = JOptionPane.showInputDialog(null, "Enter the length: ");
+
+            length = Double.parseDouble(input);
+
+            perimeter = aShape.getPerimeter();
+            input = JOptionPane.showInputDialog(null, "Enter the width: ");
+            width = Double.parseDouble(input);
+
+            aShape = new GeometricShape (length, width);
+
+
+            break;
+        case 3:
+
+            perimeter = aShape.getPerimeter();
+
+            input = JOptionPane.showInputDialog(null, "Enter side 1: ");
+            input = JOptionPane.showInputDialog(null, "Enter side 2: ");
+            input = JOptionPane.showInputDialog(null, "Enter side 3: ");
+            side1 = Double.parseDouble(input);
+            side2 = Double.parseDouble(input);
+            side3 = Double.parseDouble(input);
+
+            aShape = new GeometricShape (side1, side2, side3);
+
+            break;
+        default:
+
+                    }
+
+
+      System.out.println(aShape + " has perimeter" + perimeter);
+}
+
+}
