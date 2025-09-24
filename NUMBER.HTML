@@ -1,0 +1,55 @@
+< !DOCTYPE html >
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Stop Changing Number</title>
+                    <style>
+                        body {
+                            font - family: Arial, sans-serif;
+                        text-align: center;
+                        margin-top: 50px;
+    }
+                        #number {
+                            font - size: 2rem;
+                        margin-bottom: 20px;
+    }
+                        button {
+                            padding: 10px 20px;
+                        font-size: 1rem;
+                        cursor: pointer;
+    }
+                    </style>
+                </head>
+                <body>
+                    <div id="number">0</div>
+                    <button id="stopButton">Stop Number</button>
+
+                    <script>
+                        let numberElement = document.getElementById('number');
+                        let stopButton = document.getElementById('stopButton');
+                        let interval;
+                        let currentNumber = 0;
+
+                        // Function to start changing the number
+                        function startChangingNumber() {
+                            interval = setInterval(() => {
+                                currentNumber = Math.floor(Math.random() * 100); // Generate random number
+                                numberElement.textContent = currentNumber;
+                            }, 100); // Change number every 100ms
+    }
+
+                        // Function to stop changing the number
+                        function stopChangingNumber() {
+                            clearInterval(interval); // Stop the interval
+                        stopButton.disabled = true; // Disable the button after stopping
+    }
+
+                        // Start changing the number when the page loads
+                        startChangingNumber();
+
+                        // Add event listener to stop the number on button click
+                        stopButton.addEventListener('click', stopChangingNumber);
+                    </script>
+                </body>
+            </html>
