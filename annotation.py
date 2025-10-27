@@ -16,6 +16,12 @@ cv2.putText(img,'Region 2',(r2[0][0],r2[0][1]-10),font,0.7,(255,255,255),2)
 cv2.putText(img,'Center 1',(c1[0]-40,c1[1]+40),font,0.7,(255,255,0),2)
 cv2.putText(img,'Center 2',(c2[0]-40,c2[1]+40),font,0.7,(255,255,0),2)
 arrow_s,aroow_e=(w-50-20),(w-50,h-20)
+arrow_e,aroow_s=(w-50-20),(w-50,h-20)
 cv2.arrowedLine(img,arrow_s,aroow_e,(255,255,0),3,tipLength=0.05)
 cv2.arrowedLine(img,arrow_e,aroow_s,(255,255,0),3,tipLength=0.05)
-cv2.putText(img,f'height:{h}px')
+cv2.putText(img,f'height:{h}px'(10, h - 20), font, 0.7, (0, 255, 255), 2)
+
+# Show image
+plt.imshow(img)
+plt.axis('off')
+plt.show()
