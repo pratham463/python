@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI vs Humans – Colourful Interactive Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 85%;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        th {
+            background-color: darkcyan;
+            color: whitesmoke;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f1f5ff;
+        }
+
+        button {
+            background-color: cyan;
+            color: rgb(218, 186, 5);
+            border: none;
+            padding: 7px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #079992;
+        }
+
+        .detail {
+            display: none;
+            background-color: #ffeaa7;
+            padding: 12px;
+            font-style: italic;
+            border-radius: 5px;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function toggleDetail(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "none" || x.style.display === "") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>🤖 AI vs 👩‍🧑 Humans (Interactive Comparison)</h2>
+    <table>
+        <tr>
+            <th>Aspect</th>
+            <th>AI</th>
+            <th>Humans</th>
+            <th>Click</th>
+        </tr>
+        <tr>
+            <td>Thinking</td>
+            <td>Logical</td>
+            <td>Creative</td>
+            <td><button onclick="toggleDetail('thinking')">Show</button></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="thinking" class="detail">
+                    AI thinks using rules and data, while humans think creatively and emotionally.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Speed</td>
+            <td>Very Fast ⚡</td>
+            <td>Slow 🐢</td>
+            <td><button onclick="toggleDetail('speed')">Show</button></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="speed" class="detail">
+                    AI processes millions of calculations quickly, humans take more time.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Emotions</td>
+            <td>No Emotions 🤖</td>
+            <td>Have Emotions ❤️</td>
+            <td><button onclick="toggleDetail('emotions')">Show</button></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="emotions" class="detail">
+                    AI cannot feel happiness or sadness, humans can feel emotions.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Learning</td>
+            <td>From Data 📊</td>
+            <td>From Experience 🎓</td>
+            <td><button onclick="toggleDetail('learning')">Show</button></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="learning" class="detail">
+                    AI learns through training data, humans learn through life experiences.
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
