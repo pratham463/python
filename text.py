@@ -3,7 +3,7 @@ from requests.auth import HTTPBasicAuth
 from PIL import Image
 import os
 from colorama import init, Fore, Style
-
+from config import HF_API_KEY
 init(autoreset=True)
 API_KEY = ""
 API_SECRET = ""
@@ -46,8 +46,49 @@ def print_menu():
           1.5 words
           2.30 words
           3.50 words
-          4.100 words
           5.exit
 =====================================================
 """)
+def main():
+    Image_path = input(f"{Fore.CYAN} enter the path of the image"
+                       )
+    if not os.path.exists(Image_path):
+        print(f"file does not exists  ")
+        return
+    try:
+        image = Image.open(Image_path)
+    except Exception as e:
+        print(f"{Fore.RED}Failed to open image: {e}")
+        return
 
+    basic_caption = generate_caption(image)
+    print(
+        f"\n{Fore.YELLOW}Basic Caption:{Style.BRIGHT} {basic_caption}"
+    )
+    while True:
+        print_menu()
+        choice = input(
+            f"{Fore.CYAN}Enter your choice (1-4): {Style.RESET_ALL}"
+        )
+        if choice == "1":
+            caption = truncate_text(basic_caption, 5)
+            print(
+                f"{Fore.GREEN}Caption (5 words): {Style.BRIGHT}{caption}"
+            )
+        if choice == "2":
+            caption = truncate_text(basic_caption, 30)
+            print(
+                f"{Fore.GREEN}Caption (30 words): {Style.BRIGHT}{caption}"
+            )
+        elif choice == "3":
+            print(
+                f"{Fore.YELLOW}Basic Caption:{Style.BRIGHT} {basic_caption}"
+            )
+        elif choice == "4":
+            print(f"{Fore.MAGENTA}Thank you! Exiting program.")
+            break
+
+        else:
+            print(f"{Fore.RED}Invalid choice. Try again.")
+if __name__ == "__main__":
+    main()
